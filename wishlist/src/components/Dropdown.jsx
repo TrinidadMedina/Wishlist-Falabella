@@ -12,11 +12,17 @@ export function Dropdown({lists, product, handleSelect}) {
     }
 
     useEffect(() => {
-        document.addEventListener("mousedown", (event) => {
+        let handler = (event) =>{
             if(!dropdownRef.current.contains(event.target)){
                 setDropdown(false)
-            }       
-        })
+            }   
+        }
+
+        document.addEventListener("mousedown", handler);
+
+        return ()=>{
+            document.removeEventListener('mousedown', handler)
+        }
     })
 
     return (
@@ -37,8 +43,7 @@ export function Dropdown({lists, product, handleSelect}) {
                         )}
                         <div className='hover:bg-gray-light cursor-pointer mt-2 text-center ' id='crear' onClick={(e)=>{handleClick(e)}}>Crear lista +</div>
                 </div>
-            }
-            
+            }  
         </div>
     )
 }
