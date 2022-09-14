@@ -3,17 +3,18 @@ import { Link, useLocation } from 'react-router-dom';
 import { Popup } from '../components/Popup';
 import { ListContext } from '../context/ListContext';
 import { ListProduct } from '../components/ListProduct';
-import RightArrow from '../imgFalabella/RightArrow';
 import Pencil from '../imgFalabella/Pencil';
+import ClipLoader from "react-spinners/ClipLoader";
 
 export function ListaDetalle() {
 	const { state } = useLocation();
-	const { editList, deleteList, getList, list, deleteProduct } =
+	const { editList, deleteList, getList, list, deleteProduct, loading, setLoading } =
 		useContext(ListContext);
 	const [popUpEdit, setPopUpEdit] = useState(false);
 	const [popUpDeleteList, setPopUpDeleteList] = useState(false);
 
 	useEffect(() => {
+		setLoading(true)
 		getList(state.list.docId);
 	}, []);
 
@@ -30,7 +31,12 @@ export function ListaDetalle() {
 
 	return (
 		<>
-			<div className="flex justify-between border-b border-b-slate-300 pb-[15px] items-center">
+		{loading ?  
+			<div className="w-full h-full flex items-center justify-center">
+    			<ClipLoader loading={loading} size={30} />
+    		</div> :
+		<>
+				<div className="flex justify-between border-b border-b-slate-300 pb-[15px] items-center">
 				<Link className="text-xs" to="/Mis-Listas">
 					{'<'} Volver a Mis Listas
 				</Link>
@@ -103,6 +109,10 @@ export function ListaDetalle() {
 					listStatus={list.status}
 				/>
 			)}
+		</>
+		
+		}
+
 		</>
 	);
 }

@@ -10,6 +10,7 @@ export const ListContextProvider = ({ children }) => {
     const [list, setList] = useState([]);
     const [alert, setAlert] = useState(false);
     const [alertMessage, setAlertMessage] = useState("");
+    const [loading, setLoading] = useState(true)
 
 
     const createList = (name, status) => {
@@ -42,15 +43,17 @@ export const ListContextProvider = ({ children }) => {
     const getLists = () => {
         const q = query(collection(db, 'lists'), orderBy('date', 'desc'));
         onSnapshot(q, (data) => {
-            return setLists(data.docs.map((list) => {
+            setLists(data.docs.map((list) => {
                 return ({ ...list.data(), docId: list.id })
-            }))
+            }));
+            setLoading(false)
         })
     };
 
     const getList = async (id) => {
         const result = await getDoc(doc(db, "lists", id));
-        return setList({...result.data(), docId : result.id})
+        setList({...result.data(), docId : result.id});
+        setLoading(false)
     };
 
     const addProduct = (id, product, productId) => {
@@ -95,7 +98,9 @@ export const ListContextProvider = ({ children }) => {
             alert,
             setAlert,
             alertMessage,
-            setAlertMessage
+            setAlertMessage,
+            loading,
+            setLoading
         }}>
             {children}
         </ListContext.Provider>
