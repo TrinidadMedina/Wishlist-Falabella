@@ -7,10 +7,7 @@ export function ListProduct({ product, listId, deleteFunction }) {
 
   return (
     <>
-      <div
-        key={product.productId}
-        className="grid grid-cols-productList items-center border-b border-slate-300 p-4 gap-4 h-[127px]"
-      >
+      <div className="grid grid-cols-productList items-center border-b border-slate-300 p-4 gap-4 h-[127px]">
         <img src={product.images[0]} alt="" className="w-[70px] h-auto" />
         <div className="flex flex-col justify-center  ">
           <p className=" text-[10px] text-linea">{product.brand}</p>
@@ -24,12 +21,7 @@ export function ListProduct({ product, listId, deleteFunction }) {
         <button className="btn-gray w-[200px] justify-self-end h-10 shadow-2xl px-10 m-0">
           Agregar al carro
         </button>
-        <button
-          className="justify-self-end w-auto p-[10px]"
-          onClick={() => {
-            setPopUpDeleteProduct(true);
-          }}
-        >
+        <button className="justify-self-end w-auto p-[10px]" onClick={() => {setPopUpDeleteProduct(true)}}>
           <img className="w-4" src={trash} />
         </button>
       </div>

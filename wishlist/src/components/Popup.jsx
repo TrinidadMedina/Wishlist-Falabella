@@ -1,8 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ListContext } from '../context/ListContext';
-import cancel from '../images/close.png';
-import './popup.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClose } from '@fortawesome/free-solid-svg-icons';
 
@@ -42,7 +40,6 @@ export function Popup(props) {
 			setAlert(true);
 		} else {
 			if (props.title === 'Nueva lista') {
-				//CHECK
 				props.clickFunction(name, status);
 				props.setTrigger(false);
 				setAlertMessage('Su lista ha sido creada exitosamente');
@@ -108,7 +105,7 @@ export function Popup(props) {
 													type="radio"
 													value="Pública"
 													name="status"
-													checked
+													defaultChecked
 												/>
 												   Lista Pública
 											</label>
@@ -139,7 +136,7 @@ export function Popup(props) {
 														type="radio"
 														value="Pública"
 														name="status"
-														checked
+														defaultChecked
 													/>
 													  Lista Pública
 												</label>
@@ -162,7 +159,7 @@ export function Popup(props) {
 														type="radio"
 														value="Privada"
 														name="status"
-														checked
+														defaultChecked
 													/>
 													  Lista Privada
 												</label>

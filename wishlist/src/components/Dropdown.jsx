@@ -17,9 +17,7 @@ export function Dropdown({lists, product, handleSelect}) {
                 setDropdown(false)
             }   
         }
-
         document.addEventListener("mousedown", handler);
-
         return ()=>{
             document.removeEventListener('mousedown', handler)
         }
@@ -33,13 +31,13 @@ export function Dropdown({lists, product, handleSelect}) {
             </div>
             {dropdown && 
                 <div className='absolute p-[5px] shadow mt-0.5 text-sm w-full z-10 bg-white'>
-                    {lists.map((list)=>
+                    {lists.map((list, index)=>
                         list.productsId.includes(product.productId) ? (
-                            <div className='hover:bg-gray-light cursor-pointer flex justify-between p-1 border-b border-gray-light ' id='disabled' onClick={(e)=>{handleClick(e)}}>{list.name} 
+                            <div key={index} className='hover:bg-gray-light cursor-pointer flex justify-between p-1 border-b border-gray-light ' id='disabled' onClick={(e)=>{handleClick(e)}}>{list.name} 
                                 <img src={check} className='w-4 h-4'/>
                             </div>
                         )
-                        :(<div className='hover:bg-gray-light cursor-pointer p-1 border-b border-gray-light  ' id={list.docId} onClick={(e)=>{handleClick(e)}}>{list.name} </div>)
+                        :(<div key={index} className='hover:bg-gray-light cursor-pointer p-1 border-b border-gray-light  ' id={list.docId} onClick={(e)=>{handleClick(e)}}>{list.name} </div>)
                         )}
                         <div className='hover:bg-gray-light cursor-pointer mt-2 text-center ' id='crear' onClick={(e)=>{handleClick(e)}}>Crear lista +</div>
                 </div>

@@ -1,4 +1,3 @@
-//fabi
 import React, {useContext} from 'react';
 import close from '../images/close.png';
 import { ListContext } from '../context/ListContext';
@@ -8,7 +7,7 @@ export function Alert() {
 
   setTimeout(() => {
     setAlert(false);
-  }, 3000);
+  }, 4000);
 
   return alert ? (
     <div className='w-full flex justify-center sticky bottom-5'>

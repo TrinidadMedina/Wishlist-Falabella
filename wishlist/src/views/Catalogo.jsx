@@ -50,17 +50,14 @@ export function Catalogo() {
 					<img src={MineShaft} alt="" className="w-[10px] h-auto inline " />
 					<p>Home</p>
 					<RightArrow className="" />
-					<p>Poleras</p>
+					<p>Polerones</p>
 					<RightArrow className="" />
-					<p className="font-bold"> Poleras LED</p>
+					<p className="font-bold"> Polerones mujer</p>
 				</div>
 			</div>
 			<div className="container max-w-[955px] mx-auto gap-[10px] py-[20px] bg-white h-[120px] mt-[5px]">
 				<div className=" w-[250px] h-[50px] p-[10px] ml-[40px]">
-					<label
-						for="Ordernar"
-						className="text-ordenarPor text-[12px] block ml-[15px]"
-					>
+					<label className="text-ordenarPor text-[12px] block ml-[15px]">
 						Ordenar por:
 					</label>
 					<select

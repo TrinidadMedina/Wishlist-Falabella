@@ -1,12 +1,9 @@
-//trini (con ange)
 import React, { useContext } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ListContext } from "../context/ListContext";
 import { Popup } from "./Popup";
 import trash from "../imgFalabella/delete2.svg"
-
-//import trash from "../images/trash.png";
 
 export function List({ list }) {
   const navigate = useNavigate();
@@ -51,7 +48,7 @@ export function List({ list }) {
             onClick={() => setPopUpDelete(true)}
             src={trash}
             alt="Eliminar"
-            className="w-4 h-auto"
+            className="w-4 h-auto cursor-pointer"
           />
         </div>
       </div>
