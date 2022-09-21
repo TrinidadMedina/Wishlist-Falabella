@@ -7,8 +7,8 @@ export function Footer() {
     <div className="footer h-[320px]">
       <div className="flex justify-around w-full text-footerText mt-8">
         <div className="flex flex-col w-[239px]">
-          <h1 className="text-white">SUSCRIBETE A NUESTRO NEWSLETTER</h1>
-          <p className="m-1 pl-2">Infórmate de lo último de Falabella. </p>
+          <h1 className="text-white">SUSCRÍBETE A NUESTRO NEWSLETTER</h1>
+          <p className="my-1 pl-2">Infórmate de lo último de Falabella. </p>
           <p className="pl-2">
             Nuestras ofertas y novedades directamente en tu e-mail.
           </p>
