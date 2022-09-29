@@ -13,7 +13,6 @@ const ListsLayout = () => {
       </div>
       <div className="grid gap-[20px] grid-flow-col auto-cols-lists-layout">
         <MenuAside />
-
         <div className="bg-white shadow-sm p-[20px]">
           <Outlet />
         </div>
